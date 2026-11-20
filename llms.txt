@@ -1,10 +1,10 @@
 # Zarix AI
 
-> Zarix AI is an AI consultancy for owner-led businesses, headquartered in Toronto, Canada, with an office in Dubai, UAE. AI value architects: we find where AI will genuinely pay off before a business spends on it, then design and implement what is worth building.
+> Zarix AI is a boutique AI consulting and agentic systems firm for business owners, headquartered in Toronto, Canada, with an office in Dubai, UAE. We find where AI will genuinely pay off before a business spends on it, then design and implement what is worth building.
 
 Zarix AI starts with where a business creates value, not with the technology. Through an AI Assessment we speak privately with the owner and team, map how work actually flows, and show where it stalls, where it depends on one person, and what that costs. Clients receive a Key Findings Report and a 30/60/90-day roadmap they own. Where it makes sense, we design and implement systems built around how the business runs: automation where rules will do, AI where judgement is needed, and people in charge of the decisions that matter.
 
-Who we work with: owner-led service businesses in the Greater Toronto Area and the UAE with a working offer, real customers and a process worth improving. Not a fit for enterprise programmes or quick tool recommendations.
+Who we work with: business owners in the Greater Toronto Area and the UAE with a working offer, real customers and a process worth improving. Not a fit for enterprise programmes or quick tool recommendations.
 
 ## Key pages
 - [Home](https://zarix.ai/): what Zarix AI does and frequently asked questions
