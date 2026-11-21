@@ -115,7 +115,7 @@
   function offerCall(el) {
     var box = el.querySelector(".zc-act");
     if (box.childNodes.length) return;
-    box.innerHTML = '<a class="btn btn-gold btn-sm" href="contact.html#book">Book a 15-minute fit call</a>';
+    box.innerHTML = '<a class="btn btn-gold btn-sm" href="contact.html#book">Book a free mini assessment</a>';
   }
   function wait(ms) { return new Promise(function (r) { setTimeout(r, reduce ? 0 : ms); }); }
   function typeOut(el, text) {
@@ -147,9 +147,9 @@
       await typeOut(el, hits[0].d.a);
       sources(el, hits.filter(function (h, i) { return i === 0 || h.s > hits[0].s * 0.55; }).map(function (h) { return h.d; }));
     } else {
-      await typeOut(el, "That isn't covered in our knowledge base, so I won't guess. The quickest way to get a real answer is a 15-minute fit call with a consultant.");
+      await typeOut(el, "That isn't covered in our knowledge base, so I won't guess. The quickest way to get a real answer is a free 15-minute mini assessment with a consultant.");
     }
-    if (!good || wantsCall(q)) { var s4 = step(el, "act", "Choosing next step"); await wait(300); s4.done("Action: offered a fit call"); offerCall(el); }
+    if (!good || wantsCall(q)) { var s4 = step(el, "act", "Choosing next step"); await wait(300); s4.done("Action: offered a mini assessment"); offerCall(el); }
   }
 
   async function ask(q) {
