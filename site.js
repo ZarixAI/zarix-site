@@ -605,9 +605,9 @@
       h += '<div class="r-fix"><p class="q-dim">Fix first</p><ol><li>' + notes[0] + "</li><li>" + notes[1] + "</li></ol></div>";
       if (A.task) h += '<p class="small">You said you\'d like your team to stop: “' + esc(A.task) + '”. That\'s a good place to start the conversation.</p>';
       if (hot) {
-        h += '<div class="r-cta hot"><p><strong>You\'re ready to act.</strong> Book a free 15-minute mini assessment and we\'ll tell you honestly whether the AI Assessment is the right next step for your business.</p><div class="cta-row"><a class="btn btn-gold" href="contact.html#book">Book a Free Mini Assessment</a><button type="button" class="btn btn-ghost" id="q-restart">Start again</button></div></div>';
+        h += '<div class="r-cta hot"><p><strong>You\'re ready to act.</strong> Book a free mini assessment and we\'ll tell you honestly whether the AI Assessment is the right next step for your business.</p><div class="cta-row"><a class="btn btn-gold" href="contact.html#book">Book a Free Mini Assessment</a><button type="button" class="btn btn-ghost" id="q-restart">Start again</button></div></div>';
       } else {
-        h += '<div class="r-cta"><p>Want to talk it through? A 15-minute mini assessment costs nothing and comes with no obligation.</p><div class="cta-row"><a class="btn btn-gold" href="contact.html#book">Book a Free Mini Assessment</a><button type="button" class="btn btn-ghost" id="q-restart">Start again</button></div></div>';
+        h += '<div class="r-cta"><p>Want to talk it through? A mini assessment costs nothing and comes with no obligation.</p><div class="cta-row"><a class="btn btn-gold" href="contact.html#book">Book a Free Mini Assessment</a><button type="button" class="btn btn-ghost" id="q-restart">Start again</button></div></div>';
       }
       h += '<p class="small">An indicative check, not an assessment. Nothing has been sent. If you book a mini assessment, your result is attached to your enquiry so we can prepare; you can remove it before sending.</p></div>';
       try {

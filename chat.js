@@ -147,7 +147,7 @@
       await typeOut(el, hits[0].d.a);
       sources(el, hits.filter(function (h, i) { return i === 0 || h.s > hits[0].s * 0.55; }).map(function (h) { return h.d; }));
     } else {
-      await typeOut(el, "That isn't covered in our knowledge base, so I won't guess. The quickest way to get a real answer is a free 15-minute mini assessment with a consultant.");
+      await typeOut(el, "That isn't covered in our knowledge base, so I won't guess. The quickest way to get a real answer is a free mini assessment with a consultant.");
     }
     if (!good || wantsCall(q)) { var s4 = step(el, "act", "Choosing next step"); await wait(300); s4.done("Action: offered a mini assessment"); offerCall(el); }
   }

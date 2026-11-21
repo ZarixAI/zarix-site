@@ -12,7 +12,7 @@ Who we work with: business owners in Canada, the United States and the UAE with 
 - [How we work](https://zarix.ai/how-we-work.html): the engagement process
 - [AI Check](https://zarix.ai/ai-readiness.html): a 3-minute AI readiness self-check
 - [About](https://zarix.ai/about.html): the firm and its approach
-- [Contact](https://zarix.ai/contact.html): book a free 15-minute AI mini assessment
+- [Contact](https://zarix.ai/contact.html): book a free AI mini assessment
 
 ## Contact
 - Website: https://zarix.ai
