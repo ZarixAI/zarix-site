@@ -1178,3 +1178,13 @@ html.has-mouse .xray{display:block}
 @media (max-width:720px){.wp-get.stack .wp-card{top:calc(76px + var(--i) * 10px);min-height:200px;padding:20px}}
 .wp-autonote{margin:14px 0 0;color:var(--fg);font-size:.98rem;line-height:1.6;padding:12px 16px;border:1px solid var(--line-2);border-radius:12px;background:rgba(83,198,224,.06)}
 .svc-sessions{margin-top:12px;color:var(--fg);font-size:.98rem;padding-left:12px;border-left:2px solid var(--gold)}
+/* Nov 22: Services "In short" answer blocks */
+.inshort{padding-block:clamp(36px,5vw,56px) 8px}
+.inshort h2{margin:8px 0 22px}
+.inshort-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.inshort-item{border:1px solid var(--line-2);border-radius:16px;padding:20px 22px;background:rgba(10,20,40,.6)}
+.inshort-item:last-child{grid-column:1/-1;border-color:var(--line-gold)}
+.inshort-item h3{margin:0 0 8px;font-size:1.1rem;color:var(--gold-hi)}
+.inshort-item p{margin:0;color:var(--fg);line-height:1.65}
+.inshort-item a{color:var(--gold-hi)}
+@media (max-width:720px){.inshort-grid{grid-template-columns:minmax(0,1fr)}}
