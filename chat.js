@@ -56,7 +56,7 @@
 
   sugg.innerHTML = SUGGEST.map(function (s) { return '<button type="button">' + s + "</button>"; }).join("");
   function greet() {
-    msg("bot").querySelector(".zc-txt").textContent = "Hello. How may I help you?";
+    msg("bot").querySelector(".zc-txt").textContent = "Hello, I'm Linda, Zarix AI's virtual assistant. How may I help you?";
   }
   function open() {
     panel.hidden = false; launch.setAttribute("aria-expanded", "true"); root.classList.add("on"); tease.hidden = true;
