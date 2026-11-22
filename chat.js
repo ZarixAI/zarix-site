@@ -37,16 +37,16 @@
   var root = document.createElement("div");
   root.className = "zc";
   root.innerHTML =
-    '<button type="button" class="zc-launch" aria-expanded="false" aria-controls="zc-panel" aria-label="Ask Linda"><span class="zc-orb" aria-hidden="true"></span><span class="zc-ll">Ask Linda</span></button>' +
+    '<button type="button" class="zc-launch" aria-expanded="false" aria-controls="zc-panel" aria-label="Ask Linda AI"><span class="zc-orb" aria-hidden="true"></span><span class="zc-ll">Ask Linda AI</span></button>' +
     '<div class="zc-tease" hidden><button type="button" class="zc-tease-x" aria-label="Dismiss">×</button><p>Watch our assistant work. Ask how Zarix AI decides between automation and an AI agent.</p></div>' +
-    '<section class="zc-panel" id="zc-panel" role="dialog" aria-label="Linda, Zarix AI virtual assistant" hidden>' +
-      '<header class="zc-head"><div><p class="zc-name"><span class="zc-orb sm" aria-hidden="true"></span>Linda</p><p class="zc-sub">Zarix AI\'s virtual assistant</p></div>' +
+    '<section class="zc-panel" id="zc-panel" role="dialog" aria-label="Linda AI, Zarix AI virtual assistant" hidden>' +
+      '<header class="zc-head"><div><p class="zc-name"><span class="zc-orb sm" aria-hidden="true"></span>Linda AI</p></div>' +
       '<button type="button" class="zc-x" aria-label="Close assistant">×</button></header>' +
       '<div class="zc-body" id="zc-body" aria-live="polite"></div>' +
       '<div class="zc-sugg" id="zc-sugg"></div>' +
       '<form class="zc-form" id="zc-form"><label for="zc-in" class="zc-sr">Your question</label><input id="zc-in" type="text" autocomplete="off" maxlength="300" placeholder="Ask about our services, approach or agentic AI">' +
       '<button type="submit" class="zc-send" aria-label="Send">→</button></form>' +
-      '<p class="zc-foot">Linda is an automated assistant, not a person. She won\'t give advice on your specific situation. Please don\'t share personal information.</p>' +
+      '<p class="zc-foot">Linda AI is an automated assistant. She won\'t give advice on your specific situation. Please don\'t share personal information.</p>' +
     '</section>';
   document.body.appendChild(root);
   var launch = root.querySelector(".zc-launch"), panel = root.querySelector(".zc-panel"), body = root.querySelector("#zc-body");
