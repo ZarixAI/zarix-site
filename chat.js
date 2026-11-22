@@ -37,16 +37,16 @@
   var root = document.createElement("div");
   root.className = "zc";
   root.innerHTML =
-    '<button type="button" class="zc-launch" aria-expanded="false" aria-controls="zc-panel" aria-label="Ask Zarix AI"><span class="zc-orb" aria-hidden="true"></span><span class="zc-ll">Ask Zarix AI</span></button>' +
+    '<button type="button" class="zc-launch" aria-expanded="false" aria-controls="zc-panel" aria-label="Ask Linda"><span class="zc-orb" aria-hidden="true"></span><span class="zc-ll">Ask Linda</span></button>' +
     '<div class="zc-tease" hidden><button type="button" class="zc-tease-x" aria-label="Dismiss">×</button><p>Watch our assistant work. Ask how Zarix AI decides between automation and an AI agent.</p></div>' +
-    '<section class="zc-panel" id="zc-panel" role="dialog" aria-label="Zarix AI assistant" hidden>' +
-      '<header class="zc-head"><div><p class="zc-name"><span class="zc-orb sm" aria-hidden="true"></span>Zarix AI Assistant</p><p class="zc-sub">Answers only from our knowledge base</p></div>' +
-      '<span class="zc-mode">Knowledge base</span><button type="button" class="zc-x" aria-label="Close assistant">×</button></header>' +
+    '<section class="zc-panel" id="zc-panel" role="dialog" aria-label="Linda, Zarix AI virtual assistant" hidden>' +
+      '<header class="zc-head"><div><p class="zc-name"><span class="zc-orb sm" aria-hidden="true"></span>Linda</p><p class="zc-sub">Zarix AI\'s virtual assistant</p></div>' +
+      '<button type="button" class="zc-x" aria-label="Close assistant">×</button></header>' +
       '<div class="zc-body" id="zc-body" aria-live="polite"></div>' +
       '<div class="zc-sugg" id="zc-sugg"></div>' +
       '<form class="zc-form" id="zc-form"><label for="zc-in" class="zc-sr">Your question</label><input id="zc-in" type="text" autocomplete="off" maxlength="300" placeholder="Ask about our services, approach or agentic AI">' +
       '<button type="submit" class="zc-send" aria-label="Send">→</button></form>' +
-      '<p class="zc-foot">Automated assistant. It answers only from our published knowledge base and won\'t give advice on your specific situation. Please don\'t share personal information.</p>' +
+      '<p class="zc-foot">Linda is an automated assistant, not a person. She won\'t give advice on your specific situation. Please don\'t share personal information.</p>' +
     '</section>';
   document.body.appendChild(root);
   var launch = root.querySelector(".zc-launch"), panel = root.querySelector(".zc-panel"), body = root.querySelector("#zc-body");
@@ -56,7 +56,7 @@
 
   sugg.innerHTML = SUGGEST.map(function (s) { return '<button type="button">' + s + "</button>"; }).join("");
   function greet() {
-    msg("bot").querySelector(".zc-txt").textContent = "Hello. I answer questions about Zarix AI, how may I help you?";
+    msg("bot").querySelector(".zc-txt").textContent = "Hello. How may I help you?";
   }
   function open() {
     panel.hidden = false; launch.setAttribute("aria-expanded", "true"); root.classList.add("on"); tease.hidden = true;
@@ -147,7 +147,7 @@
       await typeOut(el, hits[0].d.a);
       sources(el, hits.filter(function (h, i) { return i === 0 || h.s > hits[0].s * 0.55; }).map(function (h) { return h.d; }));
     } else {
-      await typeOut(el, "That isn't covered in our knowledge base, so I won't guess. The quickest way to get a real answer is a free mini assessment with a consultant.");
+      await typeOut(el, "I don't have a reliable answer to that, so I won't guess. The quickest way to get a real answer is a free mini assessment with a consultant.");
     }
     if (!good || wantsCall(q)) { var s4 = step(el, "act", "Choosing next step"); await wait(300); s4.done("Action: offered a mini assessment"); offerCall(el); }
   }
