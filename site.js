@@ -12,6 +12,18 @@
       toggle.textContent = open ? "Close" : "Menu";
     });
   }
+  /* ---------- Services dropdown ---------- */
+  var sub = document.querySelector(".has-sub");
+  if (sub) {
+    var st = sub.querySelector(".sub-toggle");
+    var setSub = function (o) { sub.classList.toggle("open", o); st.setAttribute("aria-expanded", o ? "true" : "false"); };
+    st.addEventListener("click", function (e) { e.stopPropagation(); setSub(!sub.classList.contains("open")); });
+    document.addEventListener("click", function (e) { if (!sub.contains(e.target)) setSub(false); });
+    sub.addEventListener("keydown", function (e) { if (e.key === "Escape") { setSub(false); st.focus(); } });
+    sub.querySelectorAll(".sub-menu a").forEach(function (a) { a.addEventListener("click", function () {
+      setSub(false); if (links) { links.classList.remove("open"); if (toggle) { toggle.setAttribute("aria-expanded","false"); toggle.textContent = "Menu"; } }
+    }); });
+  }
   var y = document.getElementById("year");
   if (y) y.textContent = new Date().getFullYear();
 
