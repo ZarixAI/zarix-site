@@ -2,13 +2,17 @@
 
 > Zarix AI is a boutique AI consulting and agentic systems firm for business owners, headquartered in Toronto, Canada, with an office in Dubai, UAE. We find where AI will genuinely pay off before a business spends on it, then design and implement what is worth building.
 
-Zarix AI starts with where a business creates value, not with the technology. Through an AI Assessment we speak privately with the owner and team, map how work actually flows, and show where it stalls, where it depends on one person, and what that costs. Clients receive a Key Findings Report and a 30/60/90-day roadmap they own. Where it makes sense, we design and implement systems built around how the business runs: automation where rules will do, AI where judgement is needed, and people in charge of the decisions that matter.
+Zarix AI starts with where a business creates value, not with the technology. Through an AI Assessment we speak privately with the owner and team, map how work actually flows, and show where it stalls, where it depends on one person, and what that costs. Clients receive a Key Findings Report and a 30/60/90-day roadmap they own. Where it makes sense, we design and implement systems built around how the business runs: automation where rules will do, AI where judgment is needed, and people in charge of the decisions that matter.
 
 Who we work with: business owners in Canada, the United States and the UAE with a working offer, real customers and a process worth improving. Not a fit for enterprise programmes or quick tool recommendations.
 
 ## Key pages
 - [Home](https://zarix.ai/): what Zarix AI does and frequently asked questions
-- [Services](https://zarix.ai/services.html): AI Assessment, Workflow Plan, Build and Support
+- [Services](https://zarix.ai/services.html): core service 1 (AI Assessment, Workflow Plan, Build, Ongoing Support), core service 2 (Clone Your Brain) and add-on services
+- [Clone Your Brain](https://zarix.ai/clone-your-brain): a private Company Brain your team and AI tools can ask
+- [Chatbots and AI Assistants](https://zarix.ai/chatbots-ai-assistants): add-on service; customer and team assistants with a person in control
+- [Digital Twin Videos](https://zarix.ai/digital-twin): add-on service; a consent-based video likeness, clearly presented as AI-generated
+- [Training & Courses](https://zarix.ai/ai-training): add-on service; practical AI workshops for owners and teams
 - [How we work](https://zarix.ai/how-we-work.html): the engagement process
 - [AI Check](https://zarix.ai/ai-readiness.html): a 3-minute AI readiness self-check
 - [About](https://zarix.ai/about.html): the firm and its approach

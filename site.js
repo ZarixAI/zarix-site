@@ -24,6 +24,18 @@
       setSub(false); if (links) { links.classList.remove("open"); if (toggle) { toggle.setAttribute("aria-expanded","false"); toggle.textContent = "Menu"; } }
     }); });
   }
+  /* ---------- Add-on page sequences ---------- */
+  document.querySelectorAll("[data-seq]").forEach(function (fig) {
+    var items = [].slice.call(fig.querySelectorAll(".seq-i, .seq-p"));
+    if (!items.length) return;
+    var cls = function (el) { return el.classList.contains("seq-p") ? "on" : "on"; };
+    if (reduce) { items.forEach(function (el) { el.classList.add("on"); }); return; }
+    var i = 0;
+    (function tick() {
+      if (i < items.length) { items[i].classList.add(cls(items[i])); i++; setTimeout(tick, items[i - 1].classList.contains("seq-p") ? 380 : 1300); }
+      else { setTimeout(function () { items.forEach(function (el) { el.classList.remove("on"); }); i = 0; setTimeout(tick, 700); }, 4200); }
+    })();
+  });
   var y = document.getElementById("year");
   if (y) y.textContent = new Date().getFullYear();
 
