@@ -1220,3 +1220,11 @@ html.has-mouse .xray{display:block}
   .sub-d{display:none}
 }
 .svc,.xcard,.inshort{scroll-margin-top:90px}
+/* Nov 25: service tiers (core 1, core 2, add-ons) */
+.tier{padding-block:56px 8px;border-top:1px solid var(--line);display:grid;gap:12px}
+.tier-top{border-top:0;padding-top:40px}
+.tier > h2{font-size:var(--s4);line-height:1.15;margin:0}
+.tier-lede{color:#c3cbdb;max-width:70ch;margin:0 0 12px}
+.tier .svc-extras{border-top:0;padding-block:8px 48px}
+.xcard-feature{border-color:var(--line-gold);margin-bottom:40px}
+@media (min-width:1101px){.tier .svc-extras{grid-template-columns:repeat(3,minmax(0,1fr))}}
