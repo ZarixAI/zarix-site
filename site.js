@@ -26,15 +26,25 @@
   }
   /* ---------- Add-on page sequences ---------- */
   document.querySelectorAll("[data-seq]").forEach(function (fig) {
-    var items = [].slice.call(fig.querySelectorAll(".seq-i, .seq-p"));
+    var items = [].slice.call(fig.querySelectorAll(".seq-i, .seq-p, .seq-w"));
     if (!items.length) return;
-    var cls = function (el) { return el.classList.contains("seq-p") ? "on" : "on"; };
+    items.forEach(function (el, k) { el._o = el.hasAttribute("data-o") ? parseFloat(el.getAttribute("data-o")) : k; el._k = k; });
+    items.sort(function (x, y) { return (x._o - y._o) || (x._k - y._k); });
     if (reduce) { items.forEach(function (el) { el.classList.add("on"); }); return; }
-    var i = 0;
-    (function tick() {
-      if (i < items.length) { items[i].classList.add(cls(items[i])); i++; setTimeout(tick, items[i - 1].classList.contains("seq-p") ? 380 : 1300); }
-      else { setTimeout(function () { items.forEach(function (el) { el.classList.remove("on"); }); i = 0; setTimeout(tick, 700); }, 4200); }
-    })();
+    var wait = function (el) {
+      if (el.hasAttribute("data-d")) return +el.getAttribute("data-d");
+      if (el.classList.contains("seq-w")) return 170;
+      if (el.classList.contains("seq-p")) return 260;
+      return 1200;
+    };
+    var i = 0, started = false;
+    function tick() {
+      if (i < items.length) { items[i].classList.add("on"); var d = wait(items[i]); i++; setTimeout(tick, d); }
+      else { setTimeout(function () { items.forEach(function (el) { el.classList.remove("on"); }); i = 0; setTimeout(tick, 800); }, 7000); }
+    }
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (es, ob) { if (es[0].isIntersecting && !started) { started = true; ob.disconnect(); tick(); } }, { threshold: 0.25 }).observe(fig);
+    } else { tick(); }
   });
   var y = document.getElementById("year");
   if (y) y.textContent = new Date().getFullYear();
