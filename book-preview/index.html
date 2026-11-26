@@ -154,7 +154,8 @@
   $("zb-form").addEventListener("submit", function (e) {
     e.preventDefault();
     var f = e.target, msg = $("zb-msg");
-    var data = { hp: f.hp.value, name: f.name.value, email: f.email.value, business: f.business.value, website: f.website.value, fix: f.fix.value, phone: f.phone.value, slot: chosen };
+    var val = function (n) { var el = f.querySelector('[name="' + n + '"]'); return el ? el.value : ""; };
+    var data = { hp: val("hp"), name: val("name"), email: val("email"), business: val("business"), website: val("website"), fix: val("fix"), phone: val("phone"), slot: chosen };
     if (!data.name.trim() || !data.business.trim() || !data.website.trim()) { msg.className = "zb-msg err"; msg.textContent = ERR.missing_fields; return; }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(data.email.trim())) { msg.className = "zb-msg err"; msg.textContent = ERR.bad_email; return; }
     var btn = $("zb-submit"); btn.disabled = true; btn.textContent = "Booking…"; msg.className = "zb-msg"; msg.textContent = "";
