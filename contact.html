@@ -53,15 +53,9 @@
 <div class="field"><label for="f-name">Name <span class="req">*</span></label><input type="text" id="f-name" name="name" autocomplete="name" required></div>
 <div class="field"><label for="f-email">Work email <span class="req">*</span></label><input type="email" id="f-email" name="email" autocomplete="email" required></div>
 <div class="field"><label for="f-biz">Business name <span class="req">*</span></label><input type="text" id="f-biz" name="business" autocomplete="organization" required></div>
-<div class="field"><label for="f-web">Website</label><input type="url" id="f-web" name="website" placeholder="https://"></div>
-<div class="field"><label for="f-role">Your role</label><input type="text" id="f-role" name="role" autocomplete="organization-title"></div>
-<div class="field"><label for="f-size">Business size</label><select id="f-size" name="size"><option value="">Select</option><option>1–9 people</option><option>10–49 people</option><option>50–199 people</option><option>200+ people</option></select></div>
-<div class="field full"><label for="f-challenge">Primary operational challenge <span class="req">*</span></label><textarea id="f-challenge" name="challenge" required></textarea></div>
-<div class="field"><label for="f-ai">Current use of AI</label><select id="f-ai" name="ai_use"><option value="">Select</option><option>Not using AI yet</option><option>Individuals use tools informally</option><option>A few defined uses</option><option>AI is part of core workflows</option></select></div>
-<div class="field"><label for="f-improve">What you want to improve</label><input type="text" id="f-improve" name="improve"></div>
-<div class="field"><label for="f-decide">Who decides on an investment like this? <span class="req">*</span></label><select id="f-decide" name="decision_maker" required><option value="">Select</option><option>I do</option><option>I decide with a partner</option><option>Someone else decides</option></select></div>
-<div class="field"><label for="f-time">Could your team give 2–3 hours over the next month? <span class="req">*</span></label><select id="f-time" name="team_time" required><option value="">Select</option><option>Yes</option><option>Probably</option><option>Not yet</option></select></div>
-<div class="field full"><label for="f-budget">Is there budget set aside to improve this area this year? <span class="req">*</span></label><select id="f-budget" name="budget" required><option value="">Select</option><option>Yes</option><option>Depends on what we find</option><option>No</option></select></div>
+<div class="field"><label for="f-web">Website <span class="req">*</span></label><input type="text" id="f-web" name="website" inputmode="url" autocomplete="url" placeholder="yourbusiness.com" required></div>
+<div class="field full"><label for="f-challenge">What would you like to fix? <span class="req">*</span></label><textarea id="f-challenge" name="challenge" required placeholder="For example: enquiries go unanswered on busy days"></textarea></div>
+<input type="hidden" name="role" value=""><input type="hidden" name="size" value=""><input type="hidden" name="ai_use" value=""><input type="hidden" name="improve" value=""><input type="hidden" name="decision_maker" value=""><input type="hidden" name="team_time" value=""><input type="hidden" name="budget" value="">
 </div>
 <p class="small">Please don't include patient, customer or employee personal information.</p>
 <label class="check" for="f-consent"><input type="checkbox" id="f-consent" name="consent" required><span>I agree that Zarix AI may contact me about this enquiry. See our <a href="privacy.html">privacy notice</a>. <span class="req">*</span></span></label>
