@@ -43,7 +43,7 @@
     var show = function (n) {
       if (!fig.hasAttribute("data-scenes")) return;
       scenes.forEach(function (sc, k) { sc.classList.toggle("active", k === n); });
-      tabs.forEach(function (t) { t.classList.toggle("on", +t.getAttribute("data-tab") === n); });
+      tabs.forEach(function (t) { t.classList.toggle("on", t.getAttribute("data-tab") === scenes[n].getAttribute("data-scene")); });
       if (timeEl) timeEl.textContent = scenes[n].getAttribute("data-time");
     };
     if (reduce) { show(0); seqItems(scenes[0]).forEach(function (el) { el.classList.add("on"); }); return; }
