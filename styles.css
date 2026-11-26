@@ -1379,3 +1379,7 @@ html.has-mouse .xray{display:block}
 .tri-key{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 12px}
 .tri-key .tri-out{font-size:.75rem;padding:4px 9px;font-weight:500}
 .twp-line.old{color:#b8c2d6}
+.cb-scenes{display:grid}
+.cb-scene{grid-area:1/1;visibility:hidden}
+.cb-scene.active{visibility:visible}
+.cb-tabs span{transition:all .3s}

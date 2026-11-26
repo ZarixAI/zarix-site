@@ -25,26 +25,38 @@
     }); });
   }
   /* ---------- Add-on page sequences ---------- */
-  document.querySelectorAll("[data-seq]").forEach(function (fig) {
-    var items = [].slice.call(fig.querySelectorAll(".seq-i, .seq-p, .seq-w"));
-    if (!items.length) return;
+  var seqItems = function (root) {
+    var items = [].slice.call(root.querySelectorAll(".seq-i, .seq-p, .seq-w"));
     items.forEach(function (el, k) { el._o = el.hasAttribute("data-o") ? parseFloat(el.getAttribute("data-o")) : k; el._k = k; });
-    items.sort(function (x, y) { return (x._o - y._o) || (x._k - y._k); });
-    if (reduce) { items.forEach(function (el) { el.classList.add("on"); }); return; }
-    var wait = function (el) {
-      if (el.hasAttribute("data-d")) return +el.getAttribute("data-d");
-      if (el.classList.contains("seq-w")) return 170;
-      if (el.classList.contains("seq-p")) return 260;
-      return 1200;
+    return items.sort(function (x, y) { return (x._o - y._o) || (x._k - y._k); });
+  };
+  var seqWait = function (el) {
+    if (el.hasAttribute("data-d")) return +el.getAttribute("data-d");
+    if (el.classList.contains("seq-w")) return 170;
+    if (el.classList.contains("seq-p")) return 260;
+    return 1200;
+  };
+  document.querySelectorAll("[data-seq]").forEach(function (fig) {
+    var scenes = fig.hasAttribute("data-scenes") ? [].slice.call(fig.querySelectorAll("[data-scene]")) : [fig];
+    var tabs = [].slice.call(fig.querySelectorAll("[data-tab]"));
+    var timeEl = fig.querySelector(".cb-time");
+    var show = function (n) {
+      if (!fig.hasAttribute("data-scenes")) return;
+      scenes.forEach(function (sc, k) { sc.classList.toggle("active", k === n); });
+      tabs.forEach(function (t) { t.classList.toggle("on", +t.getAttribute("data-tab") === n); });
+      if (timeEl) timeEl.textContent = scenes[n].getAttribute("data-time");
     };
-    var i = 0, started = false;
+    if (reduce) { show(0); seqItems(scenes[0]).forEach(function (el) { el.classList.add("on"); }); return; }
+    var n = 0, items, i, started = false;
+    function run() { show(n); items = seqItems(scenes[n]); i = 0; tick(); }
     function tick() {
-      if (i < items.length) { items[i].classList.add("on"); var d = wait(items[i]); i++; setTimeout(tick, d); }
-      else { setTimeout(function () { items.forEach(function (el) { el.classList.remove("on"); }); i = 0; setTimeout(tick, 800); }, 7000); }
+      if (i < items.length) { items[i].classList.add("on"); var d = seqWait(items[i]); i++; setTimeout(tick, d); }
+      else { setTimeout(function () { items.forEach(function (el) { el.classList.remove("on"); }); n = (n + 1) % scenes.length; setTimeout(run, 600); }, scenes.length > 1 ? 5000 : 7000); }
     }
+    show(0);
     if ("IntersectionObserver" in window) {
-      new IntersectionObserver(function (es, ob) { if (es[0].isIntersecting && !started) { started = true; ob.disconnect(); tick(); } }, { threshold: 0.25 }).observe(fig);
-    } else { tick(); }
+      new IntersectionObserver(function (es, ob) { if (es[0].isIntersecting && !started) { started = true; ob.disconnect(); run(); } }, { threshold: 0.25 }).observe(fig);
+    } else { run(); }
   });
   var y = document.getElementById("year");
   if (y) y.textContent = new Date().getFullYear();
