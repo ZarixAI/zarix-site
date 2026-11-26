@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Book a Free AI Mini Assessment (preview) | Zarix AI</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#060b18">
+<link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+<base href="/">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Sora:wght@500;600&display=swap">
+<link rel="stylesheet" href="styles.css?v=20261126c">
+<style>
+/* Booking engine (preview). Scoped to .zb so nothing else on the site changes. */
+.zb{margin-top:32px;border:1px solid var(--line-2);border-radius:var(--r);background:var(--panel-solid);padding:clamp(18px,3vw,32px);max-width:860px}
+.zb h2{font-size:var(--s2)}
+.zb .step{font-family:var(--f-mono);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.zb-days{display:flex;gap:8px;overflow-x:auto;padding:4px 2px 10px;margin-top:16px;scrollbar-width:thin}
+.zb-day{flex:0 0 auto;min-width:78px;border:1px solid var(--line-2);border-radius:10px;background:transparent;color:var(--fg);padding:10px 8px;cursor:pointer;font:inherit;text-align:center;line-height:1.25}
+.zb-day small{display:block;color:var(--muted);font-size:.8rem}
+.zb-day[aria-pressed="true"]{border-color:var(--gold);background:rgba(207,174,102,.14)}
+.zb-times{display:grid;grid-template-columns:repeat(auto-fill,minmax(104px,1fr));gap:8px;margin-top:14px}
+.zb-time{border:1px solid var(--line-2);border-radius:10px;background:transparent;color:var(--fg);padding:11px 6px;cursor:pointer;font:inherit;font-size:1rem}
+.zb-time:hover,.zb-day:hover{border-color:var(--gold)}
+.zb-time[aria-pressed="true"]{background:var(--gold);border-color:var(--gold);color:#111;font-weight:600}
+.zb-form{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
+.zb-form .full{grid-column:1/-1}
+.zb-form label{display:block;font-size:.95rem;color:var(--fg);margin-bottom:6px}
+.zb-form input,.zb-form textarea{width:100%;font:inherit;font-size:1rem;color:var(--fg);background:var(--bg);border:1px solid var(--line-2);border-radius:10px;padding:11px 12px}
+.zb-form textarea{min-height:96px;resize:vertical}
+.zb-form input:focus,.zb-form textarea:focus{border-color:var(--gold);outline:none}
+.zb-req{color:var(--gold-hi)}
+.zb-chosen{margin-top:18px;padding:12px 14px;border-left:3px solid var(--gold);background:rgba(207,174,102,.08);border-radius:6px}
+.zb-msg{margin-top:14px;font-size:1rem}
+.zb-msg.err{color:#ffd28a}
+.zb-note{color:var(--muted);font-size:.95rem;margin-top:6px}
+@media (max-width:640px){.zb-form{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<main id="main">
+<section class="wrap page-hero">
+<a class="brand" href="index.html" aria-label="Zarix AI home"><svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true" focusable="false"><path d="M5 6h16L5 20h16" fill="none" stroke="#cfae66" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="5" cy="6" r="2.3" fill="#53c6e0"/><circle cx="21" cy="20" r="2.3" fill="#ecd49a"/></svg>ZARIX<small>AI</small></a>
+<p class="eyebrow" style="margin-top:28px">Free AI Mini Assessment</p>
+<h1 style="margin-top:12px">Choose a time that suits you.</h1>
+<p class="lede" style="margin-top:14px">About an hour on Google Meet. We look at your business before we meet, so the time is spent on what matters to you.</p>
+
+<div class="zb" id="zb" aria-live="polite">
+  <div id="zb-pick">
+    <p class="step">Step 1 of 2</p>
+    <h2>Pick a day and time</h2>
+    <p class="zb-note" id="zb-tznote">Times shown in Toronto time (ET).</p>
+    <div class="zb-days" id="zb-days" role="group" aria-label="Available days"><p class="zb-note">Loading available times…</p></div>
+    <div class="zb-times" id="zb-times" role="group" aria-label="Available times"></div>
+  </div>
+
+  <form id="zb-form" novalidate hidden>
+    <p class="step" style="margin-top:22px">Step 2 of 2</p>
+    <h2>A few details</h2>
+    <p class="zb-chosen" id="zb-chosen"></p>
+    <div style="position:absolute;left:-9999px" aria-hidden="true"><label>Leave this empty<input type="text" name="hp" tabindex="-1" autocomplete="off"></label></div>
+    <div class="zb-form">
+      <div><label for="zb-name">Your name <span class="zb-req">*</span></label><input id="zb-name" name="name" autocomplete="name" required></div>
+      <div><label for="zb-email">Email <span class="zb-req">*</span></label><input id="zb-email" name="email" type="email" autocomplete="email" required></div>
+      <div><label for="zb-biz">Business name <span class="zb-req">*</span></label><input id="zb-biz" name="business" autocomplete="organization" required></div>
+      <div><label for="zb-web">Website <span class="zb-req">*</span></label><input id="zb-web" name="website" inputmode="url" placeholder="yourbusiness.com" required></div>
+      <div class="full"><label for="zb-fix">What would you like to fix? (optional)</label><textarea id="zb-fix" name="fix" maxlength="1000" placeholder="For example: enquiries go unanswered on busy days"></textarea></div>
+      <div><label for="zb-phone">Phone (optional)</label><input id="zb-phone" name="phone" type="tel" autocomplete="tel"></div>
+    </div>
+    <p class="zb-note" style="margin-top:14px">We use these details only to prepare for and arrange your mini assessment. See our <a href="privacy.html">privacy notice</a>.</p>
+    <div class="cta-row" style="margin-top:16px"><button class="btn btn-gold" type="submit" id="zb-submit">Book my mini assessment</button><button class="btn btn-ghost" type="button" id="zb-back">Change time</button></div>
+    <p class="zb-msg" id="zb-msg" role="status"></p>
+  </form>
+
+  <div id="zb-done" hidden>
+    <p class="step">Booked</p>
+    <h2>You're booked.</h2>
+    <p class="zb-chosen" id="zb-done-when"></p>
+    <p class="zb-note" style="margin-top:12px">A confirmation email and a calendar invitation with the Google Meet link are on their way. If you need a different time, just reply to the email.</p>
+  </div>
+</div>
+</section>
+</main>
+<script>
+(function () {
+  // Apps Script web app address. Filled in after Fahad deploys the booking engine.
+  var ENDPOINT = "PASTE_DEPLOYMENT_URL_HERE";
+  var TZ = "America/Toronto";
+  var $ = function (id) { return document.getElementById(id); };
+  var slots = [], chosen = null, byDay = {};
+  var localTZ = (Intl.DateTimeFormat().resolvedOptions().timeZone) || TZ;
+
+  var fmt = function (iso, opts, tz) { return new Intl.DateTimeFormat("en-CA", Object.assign({ timeZone: tz || TZ }, opts)).format(new Date(iso)); };
+  var dayKey = function (iso) { return fmt(iso, { year: "numeric", month: "2-digit", day: "2-digit" }); };
+  var timeLabel = function (iso) { return fmt(iso, { hour: "numeric", minute: "2-digit" }); };
+  var longLabel = function (iso) {
+    var s = fmt(iso, { weekday: "long", month: "long", day: "numeric", hour: "numeric", minute: "2-digit" }) + " Toronto time";
+    if (localTZ !== TZ) s += " (" + fmt(iso, { weekday: "short", hour: "numeric", minute: "2-digit" }, localTZ) + " your time)";
+    return s;
+  };
+  if (localTZ !== TZ) $("zb-tznote").textContent = "Times shown in Toronto time (ET). Your local time appears when you pick a slot.";
+
+  function showError(text) { $("zb-days").innerHTML = '<p class="zb-note">' + text + ' You can also <a href="https://calendar.app.google/ZrqDjfhE5EJyYbCB6">book on our calendar page</a>.</p>'; }
+
+  function load() {
+    fetch(ENDPOINT + "?action=slots", { method: "GET" })
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        if (!d.ok) throw new Error("unavailable");
+        slots = d.slots || []; byDay = {};
+        slots.forEach(function (s) { var k = dayKey(s); (byDay[k] = byDay[k] || []).push(s); });
+        renderDays();
+      })
+      .catch(function () { showError("Live times couldn't load just now."); });
+  }
+
+  function renderDays() {
+    var keys = Object.keys(byDay);
+    if (!keys.length) { showError("There are no open times in the next three weeks."); return; }
+    $("zb-days").innerHTML = keys.map(function (k, i) {
+      var s = byDay[k][0];
+      return '<button type="button" class="zb-day" data-k="' + k + '" aria-pressed="' + (i === 0) + '">' +
+        fmt(s, { weekday: "short" }) + "<small>" + fmt(s, { month: "short", day: "numeric" }) + "</small></button>";
+    }).join("");
+    renderTimes(keys[0]);
+  }
+
+  function renderTimes(k) {
+    Array.prototype.forEach.call(document.querySelectorAll(".zb-day"), function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-k") === k); });
+    $("zb-times").innerHTML = byDay[k].map(function (s) {
+      return '<button type="button" class="zb-time" data-s="' + s + '" aria-pressed="false">' + timeLabel(s) + "</button>";
+    }).join("");
+  }
+
+  $("zb-days").addEventListener("click", function (e) { var b = e.target.closest(".zb-day"); if (b) renderTimes(b.getAttribute("data-k")); });
+  $("zb-times").addEventListener("click", function (e) {
+    var b = e.target.closest(".zb-time"); if (!b) return;
+    chosen = b.getAttribute("data-s");
+    $("zb-chosen").textContent = longLabel(chosen);
+    $("zb-pick").hidden = true; $("zb-form").hidden = false; $("zb-msg").textContent = "";
+    $("zb-name").focus();
+  });
+  $("zb-back").addEventListener("click", function () { $("zb-form").hidden = true; $("zb-pick").hidden = false; });
+
+  var ERR = {
+    missing_fields: "Please add your name, business name and website.",
+    bad_email: "Please check your email address.",
+    bad_website: "Please check your website address.",
+    slot_taken: "Sorry, that time has just been taken. Please choose another.",
+    busy: "We're busy for a moment. Please try again.",
+    booking_failed: "Something went wrong on our side. Please try again, or write to inquiries@zarix.ai."
+  };
+
+  $("zb-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var f = e.target, msg = $("zb-msg");
+    var data = { hp: f.hp.value, name: f.name.value, email: f.email.value, business: f.business.value, website: f.website.value, fix: f.fix.value, phone: f.phone.value, slot: chosen };
+    if (!data.name.trim() || !data.business.trim() || !data.website.trim()) { msg.className = "zb-msg err"; msg.textContent = ERR.missing_fields; return; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(data.email.trim())) { msg.className = "zb-msg err"; msg.textContent = ERR.bad_email; return; }
+    var btn = $("zb-submit"); btn.disabled = true; btn.textContent = "Booking…"; msg.className = "zb-msg"; msg.textContent = "";
+    fetch(ENDPOINT, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(data) })
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        if (d.ok) { $("zb-form").hidden = true; $("zb-done").hidden = false; $("zb-done-when").textContent = longLabel(chosen); return; }
+        msg.className = "zb-msg err"; msg.textContent = ERR[d.error] || ERR.booking_failed;
+        if (d.error === "slot_taken") { $("zb-form").hidden = true; $("zb-pick").hidden = false; load(); }
+      })
+      .catch(function () { msg.className = "zb-msg err"; msg.textContent = ERR.booking_failed; })
+      .then(function () { btn.disabled = false; btn.textContent = "Book my mini assessment"; });
+  });
+
+  load();
+})();
+</script>
+</body>
+</html>
